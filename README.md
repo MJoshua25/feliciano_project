@@ -14,7 +14,6 @@ from tinymce import HTMLField
 #================= Application Blog ===============#
 
 class Categorie (models.Model):
-    user_id =  models.ForeignKey(User, on_delete = models.CASCADE, related_name = 'categorie_user',)
     nom = models.CharField(max_length =225)
     statut = models.BooleanField(default = True)
     date_add = models.DateTimeField(auto_now_add= True)
@@ -25,17 +24,6 @@ class Categorie (models.Model):
 
 class Article (models.Model):
     auteur =  models.ForeignKey(User, on_delete = models.CASCADE, related_name = 'categorie_user',)
-    categorie = models.ForeignKey('Categorie', on_delete = models.CASCADE, related_name = 'categorie_article')
-    tag = models.ManyToManyField(Tag)
-    titre = models.CharField(max_length =225)
-    description = models.HTMLField('description')
-    contenue = models.HTMLField('contenue')
-    image = models.ImageField(blank=True, upload_to='img')
-    statut = models.BooleanField(default = True)
-    date_add = models.DateTimeField(auto_now_add= True)
-    date_update = models.DateTimeField(auto_now= True)
-
-class Article (models.Model):
     categorie = models.ForeignKey('Categorie', on_delete = models.CASCADE, related_name = 'categorie_article')
     tag = models.ManyToManyField(Tag)
     titre = models.CharField(max_length =225)
