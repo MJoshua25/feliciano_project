@@ -1,6 +1,20 @@
 # feliciano_project
  Projet feliciano
  
+ ## Aplications.
+ >Apres analyse,pour mieux structure notre projet je trouve qu'il serra utilis de le subdivisee en quatres (4) appications
+ ### MainConfig
+ >   Cette applications serrs dedier aux parametrage generale du site ,tout ce qui est front ,visible sur le site et qui ne necessite 
+ >   aucune interactions .
+ >   L'applications contients les informations du site comme les contacts les heurs d'ouvertures la localisations et autres 
+ ### Customers
+ >   Cette applications serra dedier a la gestions aux utilisateurs de notre site (client , visiteur et personnel ).
+ ### Restorants 
+ >   Pour la gestions des commendes ,l'ajout et la mise a jours des differents menu .
+ ### Blog
+ >   comme vous l'avez dejat constate 
+ >   Mais je pense qu'il y des trucs a revoir au niveau de certaines tables 
+ 
  ## Models
 
 ###================= Application Blog ===============#
