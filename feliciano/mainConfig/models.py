@@ -26,10 +26,13 @@ class Service(models.Model):
     serviveDescription=models.TextField()
     
 class WorkingHours(models.Model):
-    
     day=models.DateField()
     openHoures=models.TimeField()
     closeHoures=models.TimeField()
+    dateAdd=models.DateTimeField(auto_now_add=True)
+    dateUpp=models.DateTimeField(auto_now=True)
+    status=models.BooleanField(default=True)
     
+
     
     
