@@ -75,10 +75,11 @@ class Tag(models.Model):
 
 class Comment(models.Model):
     article = models.ForeignKey(Article,on_delete=models.CASCADE,related_name='article_comment')
-    image = models.ImageField(upload_to='blog/comment',default='profile/default.png')
+    author = models.ForeignKey(User,on_delete=models.CASCADE,related_name='auteur', null=True)
+    image = models.ImageField(upload_to='blog/comment',default='profile/default.png, null=True)
     message = models.TextField()
-    name = models.CharField(max_length=50)
-    email = models.EmailField(max_length=255)
+    name = models.CharField(max_length=50, null=True)
+    email = models.EmailField(max_length=255, null=True)
     status = models.BooleanField(default=True)
     date_add = models.DateTimeField(auto_now_add=True)
     date_upd = models.DateTimeField(auto_now=True)
