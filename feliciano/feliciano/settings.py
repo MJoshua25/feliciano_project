@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog_App.apps.BlogAppConfig',
+    'customers.apps.CustomersConfig',
+    'mainConfig.apps.MainconfigConfig',
+    'contacts.apps.ContactsConfig',
+    'resto.apps.RestoConfig',
     'django_admin_generator',
     'tinymce',
     'filebrowser',
@@ -109,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr-fr'
 
 TIME_ZONE = 'UTC'
 

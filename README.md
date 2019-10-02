@@ -76,7 +76,7 @@ class Tag(models.Model):
 class Comment(models.Model):
     article = models.ForeignKey(Article,on_delete=models.CASCADE,related_name='article_comment')
     author = models.ForeignKey(User,on_delete=models.CASCADE,related_name='auteur', null=True)
-    image = models.ImageField(upload_to='blog/comment',default='profile/default.png, null=True)
+    image = models.ImageField(upload_to='blog/comment',default='profile/default.png, )
     message = models.TextField()
     name = models.CharField(max_length=50, null=True)
     email = models.EmailField(max_length=255, null=True)
