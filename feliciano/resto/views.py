@@ -12,6 +12,7 @@ def index(request):
     menu=Menu.objects.all()
     setingInfo=setting.objects.filter(status=True)[:1].get()  
     allService=Service.objects.filter(status=True)[:3]
+    print(allService)
     
       
     data={

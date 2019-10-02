@@ -1,15 +1,6 @@
 from django.db import models
 
-# Create your models here.
-class config (models.Model):
-    numero = models.CharField(max_length =225)
-    adress = models.EmailField(max_length=225)
-    logo = models.ImageField(blank=True, upload_to='img')
-    statut = models.BooleanField(default = True)
-    date_add = models.DateTimeField(auto_now_add= True)
-    date_update = models.DateTimeField(auto_now= True)
 
-<<<<<<< HEAD
 class Front(models.Model):
     textLogo=models.CharField(max_length=255)
     fixImage=models.ImageField(upload_to='Front/fixe_images')
@@ -36,41 +27,51 @@ class Service(models.Model):
     serviceTtitle=models.CharField(max_length=255)
     serviveDescription=models.TextField()
     status=models.BooleanField(default=True)
-=======
-class Slide (models.Model):
-    nom = models.CharField(max_length =225)
-    titre = models.CharField(max_length =225)
-    image = models.ImageField(blank=True, upload_to='img')
-    statut = models.BooleanField(default = True)
-    date_add = models.DateTimeField(auto_now_add= True)
-    date_update = models.DateTimeField(auto_now= True)
     
-class Etape (models.Model):
-    nom = models.CharField(max_length =225)
-    image = models.ImageField(blank=True, upload_to='img')
-    titre = models.CharField(max_length =225)
-    statut = models.BooleanField(default = True)
-    date_add = models.DateTimeField(auto_now_add= True)
-    date_update = models.DateTimeField(auto_now= True)
->>>>>>> 1a6b06a7928634800a8cb0b6516a150df176f43a
+
+##COMMIT DAGO     
+# class Slide (models.Model):
+#     nom = models.CharField(max_length =225)
+#     titre = models.CharField(max_length =225)
+#     image = models.ImageField(blank=True, upload_to='img')
+#     statut = models.BooleanField(default = True)
+#     date_add = models.DateTimeField(auto_now_add= True)
+#     date_update = models.DateTimeField(auto_now= True)
     
-class Footer (models.Model):
-    titre = models.CharField(max_length =225)
+# class Etape (models.Model):
+#     nom = models.CharField(max_length =225)
+#     image = models.ImageField(blank=True, upload_to='img')
+#     titre = models.CharField(max_length =225)
+#     statut = models.BooleanField(default = True)
+#     date_add = models.DateTimeField(auto_now_add= True)
+#     date_update = models.DateTimeField(auto_now= True)
+    
+# class Footer (models.Model):
+#     titre = models.CharField(max_length =225)
+#     statut = models.BooleanField(default = True)
+#     date_add = models.DateTimeField(auto_now_add= True)
+#     date_update = models.DateTimeField(auto_now= True)
+
+# class foot_detail (models.Model):
+#     categorie = models.ForeignKey('Footer', on_delete = models.CASCADE, related_name = 'footer_detail')
+#     description = models.CharField(max_length =225, blank=True)
+#     jour = models.DateTimeField(auto_now_add= False, blank=True)
+#     heure_debut = models.TimeField(auto_now_add= False, blank=True)
+#     heure_fin = models.TimeField(auto_now_add= False, blank=True)
+#     image = models.ImageField(blank=True, upload_to='img')
+#     statut = models.BooleanField(default = True)
+#     date_add = models.DateTimeField(auto_now_add= True)
+#     date_update = models.DateTimeField(auto_now= True)
+    
+# Create your models here.
+class config (models.Model):
+    numero = models.CharField(max_length =225)
+    adress = models.EmailField(max_length=225)
+    logo = models.ImageField(blank=True, upload_to='img')
     statut = models.BooleanField(default = True)
     date_add = models.DateTimeField(auto_now_add= True)
     date_update = models.DateTimeField(auto_now= True)
 
-class foot_detail (models.Model):
-    categorie = models.ForeignKey('Footer', on_delete = models.CASCADE, related_name = 'footer_detail')
-    description = models.CharField(max_length =225, blank=True)
-    jour = models.DateTimeField(auto_now_add= False, blank=True)
-    heure_debut = models.TimeField(auto_now_add= False, blank=True)
-    heure_fin = models.TimeField(auto_now_add= False, blank=True)
-    image = models.ImageField(blank=True, upload_to='img')
-    statut = models.BooleanField(default = True)
-    date_add = models.DateTimeField(auto_now_add= True)
-    date_update = models.DateTimeField(auto_now= True)
-    
 
 class contact(models.Model):
     phone=models.CharField(max_length=255)
@@ -91,6 +92,14 @@ class setting(models.Model):
     number_menu=models.IntegerField()
     staf_number=models.IntegerField()
     cunstomer_number=models.IntegerField()
+    date_add=models.DateTimeField(auto_now_add=True)
+    date_upp=models.DateTimeField(auto_now=True)
+    status=models.BooleanField(default=True)
+
+class WorkingHours(models.Model):
+    day=models.DateField()
+    openHours=models.TimeField()
+    openHours=models.TimeField()
     date_add=models.DateTimeField(auto_now_add=True)
     date_upp=models.DateTimeField(auto_now=True)
     status=models.BooleanField(default=True)

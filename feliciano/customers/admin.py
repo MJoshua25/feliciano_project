@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # vim: set fileencoding=utf-8 :
 from django.contrib import admin
 
@@ -66,5 +65,3 @@ def _register(model, admin_class):
 _register(models.Customer, CustomerAdmin)
 _register(models.MasterChef, MasterChefAdmin)
 _register(models.Testi, TestiAdmin)
-=======
->>>>>>> 1a6b06a7928634800a8cb0b6516a150df176f43a
