@@ -40,10 +40,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog_App.apps.BlogAppConfig',
+<<<<<<< HEAD
     'customers.apps.CustomersConfig',
     'mainConfig.apps.MainconfigConfig',
     'contacts.apps.ContactsConfig',
     'resto.apps.RestoConfig',
+=======
+    'resto.apps.RestoConfig',
+    'contact_app.apps.ContactAppConfig',
+    'mainConfig.apps.MainconfigConfig',
+>>>>>>> 1a6b06a7928634800a8cb0b6516a150df176f43a
     'django_admin_generator',
     'tinymce',
     'filebrowser',
