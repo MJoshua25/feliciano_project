@@ -45,7 +45,6 @@ class Comment(models.Model):
     message = models.TextField()
     name = models.CharField(max_length=50)
     email = models.EmailField(max_length=255)
-    website = models.URLField(max_length=200)
     status = models.BooleanField(default=True)
     date_add = models.DateTimeField(auto_now_add=True)
     date_upd = models.DateTimeField(auto_now=True)
