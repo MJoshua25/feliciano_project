@@ -77,7 +77,7 @@ class contact(models.Model):
     phone=models.CharField(max_length=255)
     email=models.EmailField()
     adresse=models.CharField(max_length=255)
-    
+    status=models.BooleanField(default=True)
 class LocationMap(models.Model):
     location_name=models.CharField(max_length=255)
     long=models.DecimalField(max_length=255,max_digits=10,decimal_places=5)
@@ -97,7 +97,7 @@ class setting(models.Model):
     status=models.BooleanField(default=True)
 
 class WorkingHours(models.Model):
-    day=models.DateField()
+    day=models.CharField(max_length=255)
     openHours=models.TimeField()
     closeHours=models.TimeField()
     date_add=models.DateTimeField(auto_now_add=True)

@@ -5,6 +5,7 @@ import datetime
 from mainConfig.models import *
 from .models import *
 from customers.models import *
+from blog_App.models import Article
 
 
 # Create your views here.
@@ -16,8 +17,13 @@ def index(request):
     menu=Menu.objects.all()
     setingInfo=setting.objects.filter(status=True)[:1].get()  
     allService=Service.objects.filter(status=True)[:3]
-    print(allService)
     masters=MasterChef.objects.all()
+    allTesti=Testi.objects.all()
+    allBlog=Article.objects.filter(status=True)[:3]
+    contacts=contact.objects.filter(status=True)[:1].get()
+    programme=WorkingHours.objects.filter(status=True)[:7]
+    munday=WorkingHours.objects.filter(day='Lundi')[:1].get()
+    samdi=WorkingHours.objects.filter(day='Vendredi')[:1].get()
     
     isSave=False
     myName=request.POST.get('name',False)
@@ -44,7 +50,13 @@ def index(request):
         'seting':setingInfo,
         'services':allService,
         'masters':masters,
-        'newRdv':isSave
+        'newRdv':isSave,
+        'allTesti':allTesti,
+        'allBlog':allBlog,
+        'contact':contacts,
+        'workingHours':programme,
+        'lundi':munday,
+        'vendredi':samdi
     }
     return render(request,'pages/index.html',data)
 

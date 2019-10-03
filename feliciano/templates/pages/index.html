@@ -282,62 +282,22 @@
         </div>
         </div>
     </div>
+    {% for testimonial in allTesti %}
     <div class="item">
         <div class="testimony-wrap text-center pb-5">
-        <div class="user-img mb-4" style="background-image: url(/static/images/person_2.jpg)">
+        <div class="user-img mb-4" style="background-image: url({{testimonial.customer_id.image.url}})">
             <span class="quote d-flex align-items-center justify-content-center">
             <i class="icon-quote-left"></i>
             </span>
         </div>
         <div class="text p-3">
-            <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-            <p class="name">Mark Stevenson</p>
+            <p class="mb-4">{{testimonial.comment}}</p>
+            <p class="name">{{testimonial.customer_id.username}}</p>
             <span class="position">Customer</span>
         </div>
         </div>
     </div>
-    <div class="item">
-        <div class="testimony-wrap text-center pb-5">
-        <div class="user-img mb-4" style="background-image: url(/static/images/person_3.jpg)">
-            <span class="quote d-flex align-items-center justify-content-center">
-            <i class="icon-quote-left"></i>
-            </span>
-        </div>
-        <div class="text p-3">
-            <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-            <p class="name">Art Leonard</p>
-            <span class="position">Customer</span>
-        </div>
-        </div>
-    </div>
-    <div class="item">
-        <div class="testimony-wrap text-center pb-5">
-        <div class="user-img mb-4" style="background-image: url(/static/images/person_4.jpg)">
-            <span class="quote d-flex align-items-center justify-content-center">
-            <i class="icon-quote-left"></i>
-            </span>
-        </div>
-        <div class="text p-3">
-            <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-            <p class="name">Rose Henderson</p>
-            <span class="position">Customer</span>
-        </div>
-        </div>
-    </div>
-    <div class="item">
-        <div class="testimony-wrap text-center pb-5">
-        <div class="user-img mb-4" style="background-image: url(/static/images/person_3.jpg)">
-            <span class="quote d-flex align-items-center justify-content-center">
-            <i class="icon-quote-left"></i>
-            </span>
-        </div>
-        <div class="text p-3">
-            <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-            <p class="name">Ian Boner</p>
-            <span class="position">Customer</span>
-        </div>
-        </div>
-    </div>
+    {% endfor %}
     </div>
 </div>
 </div>
@@ -352,58 +312,26 @@
     <h2 class="mb-4">Recent Posts</h2>
 </div>
 </div>
-        <div class="row">
+<div class="row">
+{% for article in allBlog %}
 <div class="col-md-4 ftco-animate">
-    <div class="blog-entry">
-    <a href="blog-single.html" class="block-20" style="background-image: url('/static/images/image_1.jpg');">
-    </a>
-    <div class="text pt-3 pb-4 px-4">
-        <div class="meta">
-        <div><a href="#">Sept. 06, 2019</a></div>
-        <div><a href="#">Admin</a></div>
+        <div class="blog-entry">
+        <a href="{% url 'blog:article' article.id %}" class="block-20" style="background-image: url('{{ article.image.url }}');">
+        </a>
+        <div class="text pt-3 pb-4 px-4">
+            <div class="meta">
+            <div><a href="{% url 'blog:article' article.id %}">{{ article.date_add|date:'M. d, Y' }}</a></div>
+            <div><a href="{% url 'blog:article' article.id %}">{{ article.author.user.last_name }} {{ article.author.user.first_name }}</a></div>
+            </div>
+            <h3 class="heading"><a href="{% url 'blog:article' article.id %}">{{ article.titre }}</a></h3>
+            <p class="clearfix">
+            <a href="{% url 'blog:article' article.id %}" class="float-left read">Read more</a>
+            <a href="{% url 'blog:article' article.id %}" class="float-right meta-chat"><span class="icon-chat"></span> {{ article.article_comment.all.count }}</a>
+            </p>
         </div>
-        <h3 class="heading"><a href="#">Taste the delicious foods in Asia</a></h3>
-        <p class="clearfix">
-        <a href="#" class="float-left read">Read more</a>
-        <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
-        </p>
-    </div>
-    </div>
-</div>
-<div class="col-md-4 ftco-animate">
-    <div class="blog-entry">
-    <a href="blog-single.html" class="block-20" style="background-image: url('/static/images/image_2.jpg');">
-    </a>
-    <div class="text pt-3 pb-4 px-4">
-        <div class="meta">
-        <div><a href="#">Sept. 06, 2019</a></div>
-        <div><a href="#">Admin</a></div>
         </div>
-        <h3 class="heading"><a href="#">Taste the delicious foods in Asia</a></h3>
-        <p class="clearfix">
-        <a href="#" class="float-left read">Read more</a>
-        <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
-        </p>
     </div>
-    </div>
-</div>
-<div class="col-md-4 ftco-animate">
-    <div class="blog-entry">
-    <a href="blog-single.html" class="block-20" style="background-image: url('/static/images/image_3.jpg');">
-    </a>
-    <div class="text pt-3 pb-4 px-4">
-        <div class="meta">
-        <div><a href="#">Sept. 06, 2019</a></div>
-        <div><a href="#">Admin</a></div>
-        </div>
-        <h3 class="heading"><a href="#">Taste the delicious foods in Asia</a></h3>
-        <p class="clearfix">
-        <a href="#" class="float-left read">Read more</a>
-        <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
-        </p>
-    </div>
-    </div>
-</div>
+{% endfor %}
 </div>
     </div>
 </section>
