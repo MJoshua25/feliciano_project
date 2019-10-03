@@ -61,7 +61,36 @@ def index(request):
     return render(request,'pages/index.html',data)
 
 def about(request):
-    return render(request,'pages/about.html')
+    allFront = Front.objects.filter(status=True)[:1].get()
+    headerImage=headBackImage.objects.filter(status=True)[:3]
+    aboutInfo=About.objects.filter(status=True)[:1].get()
+    menu=Menu.objects.all()
+    setingInfo=setting.objects.filter(status=True)[:1].get()  
+    allService=Service.objects.filter(status=True)[:3]
+    masters=MasterChef.objects.all()
+    allTesti=Testi.objects.all()
+    allBlog=Article.objects.filter(status=True)[:3]
+    contacts=contact.objects.filter(status=True)[:1].get()
+    programme=WorkingHours.objects.filter(status=True)[:7]
+    munday=WorkingHours.objects.filter(day='Lundi')[:1].get()
+    samdi=WorkingHours.objects.filter(day='Vendredi')[:1].get()
+    data={
+        'allFront':allFront,
+        'imageBack':headerImage,
+        'aboutInfo':aboutInfo,
+        'menus':menu,
+        'seting':setingInfo,
+        'services':allService,
+        'masters':masters,
+        'allTesti':allTesti,
+        'allBlog':allBlog,
+        'contact':contacts,
+        'workingHours':programme,
+        'lundi':munday,
+        'vendredi':samdi
+    }
+
+    return render(request,'pages/about.html',data)
 
 def menu(request):
     data = {

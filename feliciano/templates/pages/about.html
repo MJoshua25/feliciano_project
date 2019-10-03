@@ -1,6 +1,7 @@
 {% extends 'bases/myBase.html' %}
 
-{% block content %}  <section class="hero-wrap hero-wrap-2" style="background-image: url('/static/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+{% block content %}  
+<section class="hero-wrap hero-wrap-2" style="background-image: url('/static/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-center">
@@ -13,30 +14,29 @@
     </section>
     
     
-        <section class="ftco-section ftco-wrap-about">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-7 d-flex">
-                        <div class="img img-1 mr-md-2" style="background-image: url(/static/images/about.jpg);"></div>
-                        <div class="img img-2 ml-md-2" style="background-image: url(/static/images/about-1.jpg);"></div>
-                    </div>
-                    <div class="col-md-5 wrap-about pt-5 pt-md-5 pb-md-3 ftco-animate">
-            <div class="heading-section mb-4 my-5 my-md-0">
-                <span class="subheading">About</span>
-                <h2 class="mb-4">Feliciano Restaurant</h2>
-            </div>
-            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                        <pc class="time">
-                            <span>Mon - Fri <strong>8 AM - 11 PM</strong></span>
-                            <span><a href="#">+ 1-978-123-4567</a></span>
-                        </p>
-                    </div>
+    <section class="ftco-section ftco-wrap-about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 d-flex">
+                    <div class="img img-1 mr-md-2" style="background-image: url({{aboutInfo.aboutImages1.url}});"></div>
+                    <div class="img img-2 ml-md-2" style="background-image: url({{aboutInfo.aboutImages2.url}});"></div>
+                </div>
+                <div class="col-md-5 wrap-about pt-5 pt-md-5 pb-md-3 ftco-animate">
+        <div class="heading-section mb-4 my-5 my-md-0">
+            <span class="subheading">About</span>
+            <h2 class="mb-4">{{allInfo.textLogo}} Restaurant</h2>
+        </div>
+        <p>{{aboutInfo.aboutText}}</p>
+                    <pc class="time">
+                        <span>Mon - Fri <strong>8 AM - 11 PM</strong></span>
+                        <span><a href="#">+ 1-978-123-4567</a></span>
+                    </p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
     
-            
-        <section class="ftco-section ftco-counter img ftco-no-pt" id="section-counter">
+    <section class="ftco-section ftco-counter img ftco-no-pt" id="section-counter">
         <div class="container">
             <div class="row d-md-flex">
                 <div class="col-md-9">
@@ -44,7 +44,7 @@
                 <div class="col-md-6 col-lg-3 mb-4 mb-lg-0 d-flex justify-content-center counter-wrap ftco-animate">
                     <div class="block-18">
                     <div class="text">
-                        <strong class="number" data-number="18">0</strong>
+                        <strong class="number" data-number="{{seting.experiance}}">0</strong>
                         <span>Years of Experienced</span>
                     </div>
                     </div>
@@ -52,7 +52,7 @@
                 <div class="col-md-6 col-lg-3 mb-4 mb-lg-0 d-flex justify-content-center counter-wrap ftco-animate">
                     <div class="block-18">
                     <div class="text">
-                        <strong class="number" data-number="100">0</strong>
+                        <strong class="number" data-number="{{seting.number_menu}}">0</strong>
                         <span>Menus/Dish</span>
                     </div>
                     </div>
@@ -60,7 +60,7 @@
                 <div class="col-md-6 col-lg-3 mb-4 mb-lg-0 d-flex justify-content-center counter-wrap ftco-animate">
                     <div class="block-18">
                     <div class="text">
-                        <strong class="number" data-number="50">0</strong>
+                        <strong class="number" data-number="{{seting.staf_number}}">0</strong>
                         <span>Staffs</span>
                     </div>
                     </div>
@@ -68,7 +68,7 @@
                 <div class="col-md-6 col-lg-3 mb-4 mb-lg-0 d-flex justify-content-center counter-wrap ftco-animate">
                     <div class="block-18">
                     <div class="text">
-                        <strong class="number" data-number="15000">0</strong>
+                        <strong class="number" data-number="{{seting.cunstomer_number}}">0</strong>
                         <span>Happy Customers</span>
                     </div>
                     </div>
@@ -76,12 +76,12 @@
             </div>
         </div>
         <div class="col-md-3 text-center text-md-left">
-            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            <p>{{allInfo.performText}}</p>
         </div>
         </div>
         </div>
-    </section>
-    
+        </section>
+
         <section class="ftco-section bg-light">
             <div class="container">
                 <div class="row justify-content-center mb-5 pb-2">
@@ -91,42 +91,23 @@
         </div>
         </div>
         <div class="row">
+        {% for service in services %}
         <div class="col-md-4 d-flex align-self-stretch ftco-animate text-center">
             <div class="media block-6 services d-block">
             <div class="icon d-flex justify-content-center align-items-center">
-                    <span class="flaticon-cake"></span>
+                    <span class="{{service.iconText}}"></span>
             </div>
             <div class="media-body p-2 mt-3">
-                <h3 class="heading">Birthday Party</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <h3 class="heading">{{service.serviceTtitle}}</h3>
+                <p>{{service.serviveDescription}}</p>
             </div>
             </div>      
         </div>
-        <div class="col-md-4 d-flex align-self-stretch ftco-animate text-center">
-            <div class="media block-6 services d-block">
-            <div class="icon d-flex justify-content-center align-items-center">
-                    <span class="flaticon-meeting"></span>
-            </div>
-            <div class="media-body p-2 mt-3">
-                <h3 class="heading">Business Meetings</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-            </div>
-            </div>    
-        </div>
-        <div class="col-md-4 d-flex align-self-stretch ftco-animate text-center">
-            <div class="media block-6 services d-block">
-            <div class="icon d-flex justify-content-center align-items-center">
-                    <span class="flaticon-tray"></span>
-            </div>
-            <div class="media-body p-2 mt-3">
-                <h3 class="heading">Wedding Party</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-            </div>
-            </div>      
-        </div>
+        {% endfor %}
         </div>
             </div>
         </section>
+
         
         <section class="ftco-section">
             <div class="container">

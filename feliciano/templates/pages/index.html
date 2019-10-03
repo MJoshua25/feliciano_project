@@ -121,7 +121,7 @@
                     </div>
                 </div>
                 <p>{{menu.description}}</p>
-                <p><a href="#" class="btn btn-primary">Order now</a></p>
+                <p><a href="{% url 'reservations' %}" class="btn btn-primary">Order now</a></p>
             </div>
         </div>
         </div>
@@ -140,7 +140,7 @@
                         </div>
                     </div>
                     <p>{{menu.description}}</p>
-                    <p><a href="#" class="btn btn-primary">Order now</a></p>
+                    <p><a href="{% url 'reservations' %}" class="btn btn-primary">Order now</a></p>
                 </div>
             </div>
             <div class="menu-img img" style="background-image: url({{menu.image_menu.url}});"></div>
@@ -268,20 +268,6 @@
 <div class="row ftco-animate justify-content-center">
 <div class="col-md-12">
     <div class="carousel-testimony owl-carousel ftco-owl">
-    <div class="item">
-        <div class="testimony-wrap text-center pb-5">
-        <div class="user-img mb-4" style="background-image: url(/static/images/person_1.jpg)">
-            <span class="quote d-flex align-items-center justify-content-center">
-            <i class="icon-quote-left"></i>
-            </span>
-        </div>
-        <div class="text p-3">
-            <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-            <p class="name">Jason McClean</p>
-            <span class="position">Customer</span>
-        </div>
-        </div>
-    </div>
     {% for testimonial in allTesti %}
     <div class="item">
         <div class="testimony-wrap text-center pb-5">
@@ -292,8 +278,9 @@
         </div>
         <div class="text p-3">
             <p class="mb-4">{{testimonial.comment}}</p>
-            <p class="name">{{testimonial.customer_id.username}}</p>
-            <span class="position">Customer</span>
+            <p class="name">{{testimonial.customer_id}}</p>
+
+            <span class="position">Customer Pesnte</span>
         </div>
         </div>
     </div>

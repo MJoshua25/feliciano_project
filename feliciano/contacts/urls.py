@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 from .import views
 
 urlpatterns = [
-    path('',views.contact ,name='contact'),
+    path('',views.contactfonc ,name='contact'),
 ]
 
 if settings.DEBUG:
