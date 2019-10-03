@@ -8,7 +8,6 @@ def visitor_ip_address(request):
         req = requests.get('https://api.ipify.org?format=json')
         data = json.loads(req.text)
         ip = data['ip']
-    print(ip)
     url = "https://ipapi.com/ip_api.php?ip={}"
     try:
         req = requests.get(url.format(ip))
