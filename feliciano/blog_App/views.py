@@ -5,6 +5,7 @@ from django.core.paginator import Paginator
 from faker import Faker
 from .models import *
 from random import randint
+from django.db.models import Count
 
 # Create your views here.
 def index(request):
@@ -22,8 +23,50 @@ def article(request, id):
 	data = {
 		'category':Categorie.objects.filter(status=True),
 		'article':Article.objects.get(pk=id),
+		'art_popu':Article.objects.annotate(num_comment=Count('article_comment')).order_by('-num_comment')[:3],
+		'tags':Tag.objects.filter(status=True),
 	}
 	return render(request,'pages/single_blog.html', data)
+
+
+def category(request, cat):
+	paginator =Paginator(Article.objects.filter(categorie__titre__contains=cat).filter(status=True).order_by('-date_add'),6)
+	if request.method == 'GET':
+		page=request.GET.get('page',1)
+	articles = paginator.page(page)
+	data = {
+		'cat_name': cat,
+		'category':Categorie.objects.filter(status=True),
+		'articles':articles,
+	}
+	return render(request,'pages/blog_cat.html', data)
+
+
+def tag(request, tag):
+	paginator =Paginator(Article.objects.filter(tag__titre__contains=tag).filter(status=True).order_by('-date_add'),6)
+	if request.method == 'GET':
+		page=request.GET.get('page',1)
+	articles = paginator.page(page)
+	data = {
+		'tag_name': tag,
+		'category':Categorie.objects.filter(status=True),
+		'articles':articles,
+	}
+	return render(request,'pages/blog_tag.html', data)
+
+
+def date(request, annee, mois):
+	paginator =Paginator(Article.objects.filter(date_from__year__gte=annee,date_from__month__gte=mois,date_to__year__lte=annee,date_to__month__lte=mois).filter(status=True).order_by('-date_add'),6)
+	if request.method == 'GET':
+		page=request.GET.get('page',1)
+	articles = paginator.page(page)
+	data = {
+		'annee': annee,
+		'mois': mois,
+		'category':Categorie.objects.filter(status=True),
+		'articles':articles,
+	}
+	return render(request,'pages/blog_date.html', data)
 
 
 

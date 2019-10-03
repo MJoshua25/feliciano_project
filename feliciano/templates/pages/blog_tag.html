@@ -8,12 +8,11 @@
         <div class="row no-gutters slider-text align-items-end justify-content-center">
         <div class="col-md-9 ftco-animate text-center mb-4">
             <h1 class="mb-2 bread">Blog</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i class="ion-ios-arrow-forward"></i></span></p>
+            <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="{% url 'blog:index' %}">Blog <i class="ion-ios-arrow-forward"></i></a></span> <span>Tag<i class="ion-ios-arrow-forward"></i></span><span>{{ tag_name }}<i class="ion-ios-arrow-forward"></i></span></p>
         </div>
         </div>
     </div>
     </section>
-            
         <section class="ftco-section bg-light">
             <div class="container">
                 <div class="row">
