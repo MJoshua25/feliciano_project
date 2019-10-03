@@ -26,15 +26,16 @@ def index(request):
     myDate=request.POST.get('date',False)
     myTime=request.POST.get('time',False)
     myPlace=request.POST.get('place',False)
-    if  myDate :
-        newDate=datetime.datetime.strptime(myDate, "%Y/%m/%d")
-        newDate.strftime("%Y/%m/%d")
-        print(newDate)
-        # newRdv=Reservation(name=myName,email=myEmail,phone=myPhone,date=myDate,time=myTime,place_number=myPlace)
-        # newRdv.save()
-        isSave=True
-        print('rendevous enregistre')
- 
+    if request.method =='POST':
+        if  myDate is not False :
+            try:
+                newRdv=Reservation(name=myName,email=myEmail,phone=myPhone,date=myDate,time=myTime,place_number=myPlace)
+                newRdv.save()
+                isSave=True
+                print('rendevous enregistre')
+            except:
+                print('Erreur enregistrement rendevous ')
+                isSave=False
     data={
         'allFront':allFront,
         'imageBack':headerImage,
