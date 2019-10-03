@@ -1,20 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import User
 from tinymce import HTMLField
+from resto.models import Categorie
 
 # Create your models here.
-class Categorie(models.Model):
-    titre=models.CharField(max_length=255)
-    date_add=models.DateTimeField(auto_now_add=True)
-    date_up=models.DateTimeField(auto_now_add=True)
-    status=models.BooleanField(default=True)
 
 class Article(models.Model):
     titre = models.CharField(max_length=250)
     description = models.TextField()
     contenu = HTMLField('contenu')
     image = models.ImageField(upload_to='blog/articles')
-    categorie = models.ForeignKey('Categorie',on_delete=models.CASCADE,related_name='category_arcticle')
+    categorie = models.ForeignKey(Categorie,on_delete=models.CASCADE,related_name='category_arcticle')
     author = models.ForeignKey('Author',on_delete=models.CASCADE,related_name='author_article')
     tag = models.ManyToManyField('Tag')
     acceuil = models.BooleanField(default=True,null=True)
