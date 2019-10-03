@@ -6,6 +6,7 @@ from faker import Faker
 from .models import *
 from random import randint
 from django.db.models import Count
+from . import forms
 
 # Create your views here.
 def index(request):
@@ -68,6 +69,33 @@ def date(request, annee, mois):
 	}
 	return render(request,'pages/blog_date.html', data)
 
+def commentaire(request):
+	if request.method == 'POST':
+		comment = Comment(
+			article = Article.objects.get(pk=request.POST.get('article')),
+			message = request.POST.get('message'),
+			name = request.POST.get('name'),
+			email = request.POST.get('email'),
+			image = request.FILES.get('image'),
+		)
+		comment.save()
+	return redirect('blog:article', id=request.POST.get('article'))
+
+
+def search(request):
+	if request.method == 'GET':
+		query=request.GET.get('q',False)
+		paginator =Paginator(Article.objects.filter(titre__icontains=query).filter(status=True).order_by('-date_add'),6)
+		page=request.GET.get('page',1)
+		articles = paginator.page(page)
+		data = {
+			'search_name': query,
+			'category':Categorie.objects.filter(status=True),
+			'articles':articles,
+		}
+		return render(request,'pages/blog_search.html', data)
+	return redirect('blog:index')
+
 
 
 def artFake(request):
@@ -98,3 +126,25 @@ def artFake(request):
 		art.save()
 	return redirect('blog:index')
 
+def comFake(request):
+	from django.core.files import File
+	fake = Faker()
+	article = Article.objects.filter(status=True)
+	images = [os.path.join(settings.BASE_DIR,'static/images/person_'+str(i)+'.jpg') for i in range(1,5)]
+	inter =0
+	while inter < 500:
+		art = article[randint(0,len(article)-1)]
+		inter += 1
+		nom=fake.name()
+		comment =Comment(
+			article=art,
+			message= fake.paragraph(nb_sentences=2, variable_nb_sentences=True, ext_word_list=None),
+			name= nom,
+			email=fake.safe_email(),
+		)
+		img=images[randint(0,len(images)-1)]
+		img = open(img,'rb')
+		name='{}.jpg'.format(nom)
+		comment.image.save(name, File(img))
+		img.close()
+	return redirect('blog:index')

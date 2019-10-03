@@ -42,7 +42,7 @@ class Tag(models.Model):
 
 class Comment(models.Model):
     article = models.ForeignKey(Article,on_delete=models.CASCADE,related_name='article_comment')
-    image = models.ImageField(upload_to='blog/comment',default='profile/default.png')
+    image = models.ImageField(upload_to='blog/comment',default='profile/default.jpg')
     message = models.TextField(max_length=255)
     name = models.CharField(max_length=50)
     email = models.EmailField(max_length=255)
@@ -71,4 +71,3 @@ class Author(models.Model):
         return '{}'.format(self.user)
 
 
-#python manage.py admin_generator blog_App >> blog_App/admin.py
