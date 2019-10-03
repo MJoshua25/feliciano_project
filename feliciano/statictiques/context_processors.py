@@ -1,6 +1,16 @@
 import requests
 import json
 from . import models
+import asyncio
+
+async def get_from_api(url):
+    try:
+        req = await requests.get(url)
+        data = json.loads(req.text)
+    except:
+        print('error')
+    return data
+
 def visitor_ip_address(request):
 
     ip=request.client_ip
