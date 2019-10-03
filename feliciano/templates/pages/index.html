@@ -105,122 +105,50 @@
 </div>
 </div>
 <div class="row no-gutters d-flex align-items-stretch">
+    {% for menu in menus %}
+    {% if forloop.counter < 3 %}
     <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
         <div class="menus d-sm-flex ftco-animate align-items-stretch">
-    <div class="menu-img img" style="background-image: url(/static/images/breakfast-1.jpg);"></div>
-    <div class="text d-flex align-items-center">
-                        <div>
-            <div class="d-flex">
-                <div class="one-half">
-                <h3>Grilled Beef with potatoes</h3>
+        <div class="menu-img img" style="background-image: url({{menu.image_menu.url}});"></div>
+        <div class="text d-flex align-items-center">
+            <div>
+                <div class="d-flex">
+                    <div class="one-half">
+                    <h3>{{menu.titre}}</h3>
+                    </div>
+                    <div class="one-forth">
+                    <span class="price">${{menu.prix}}</span>
+                    </div>
                 </div>
-                <div class="one-forth">
-                <span class="price">$29</span>
-                </div>
+                <p>{{menu.description}}</p>
+                <p><a href="#" class="btn btn-primary">Order now</a></p>
             </div>
-            <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-            <p><a href="#" class="btn btn-primary">Order now</a></p>
+        </div>
         </div>
     </div>
-    </div>
-    </div>
+    {% else %}
     <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
-        <div class="menus d-sm-flex ftco-animate align-items-stretch">
-    <div class="menu-img img" style="background-image: url(/static/images/breakfast-2.jpg);"></div>
-    <div class="text d-flex align-items-center">
-                        <div>
-            <div class="d-flex">
-                <div class="one-half">
-                <h3>Grilled Beef with potatoes</h3>
-                </div>
-                <div class="one-forth">
-                <span class="price">$29</span>
+            <div class="menus d-sm-flex ftco-animate align-items-stretch">
+            <div class="text d-flex align-items-center">
+                <div>
+                    <div class="d-flex">
+                        <div class="one-half">
+                        <h3>{{menu.titre}}</h3>
+                        </div>
+                        <div class="one-forth">
+                        <span class="price">${{menu.prix}}</span>
+                        </div>
+                    </div>
+                    <p>{{menu.description}}</p>
+                    <p><a href="#" class="btn btn-primary">Order now</a></p>
                 </div>
             </div>
-            <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-            <p><a href="#" class="btn btn-primary">Order now</a></p>
-        </div>
-    </div>
-    </div>
-    </div>
+            <div class="menu-img img" style="background-image: url({{menu.image_menu.url}});"></div>
 
-    <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
-        <div class="menus d-sm-flex ftco-animate align-items-stretch">
-    <div class="menu-img img order-md-last" style="background-image: url(/static/images/breakfast-3.jpg);"></div>
-    <div class="text d-flex align-items-center">
-                        <div>
-            <div class="d-flex">
-                <div class="one-half">
-                <h3>Grilled Beef with potatoes</h3>
-                </div>
-                <div class="one-forth">
-                <span class="price">$29</span>
-                </div>
             </div>
-            <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-            <p><a href="#" class="btn btn-primary">Order now</a></p>
         </div>
-    </div>
-    </div>
-    </div>
-    <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
-        <div class="menus d-sm-flex ftco-animate align-items-stretch">
-    <div class="menu-img img order-md-last" style="background-image: url(/static/images/breakfast-5.jpg);"></div>
-    <div class="text d-flex align-items-center">
-                        <div>
-            <div class="d-flex">
-                <div class="one-half">
-                <h3>Grilled Beef with potatoes</h3>
-                </div>
-                <div class="one-forth">
-                <span class="price">$29</span>
-                </div>
-            </div>
-            <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-            <p><a href="#" class="btn btn-primary">Order now</a></p>
-        </div>
-    </div>
-    </div>
-    </div>
-
-    <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
-        <div class="menus d-sm-flex ftco-animate align-items-stretch">
-    <div class="menu-img img" style="background-image: url(/static/images/breakfast-6.jpg);"></div>
-    <div class="text d-flex align-items-center">
-                        <div>
-            <div class="d-flex">
-                <div class="one-half">
-                <h3>Grilled Beef with potatoes</h3>
-                </div>
-                <div class="one-forth">
-                <span class="price">$29</span>
-                </div>
-            </div>
-            <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-            <p><a href="#" class="btn btn-primary">Order now</a></p>
-        </div>
-    </div>
-    </div>
-    </div>
-    <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
-        <div class="menus d-sm-flex ftco-animate align-items-stretch">
-    <div class="menu-img img" style="background-image: url(/static/images/breakfast-2.jpg);"></div>
-    <div class="text d-flex align-items-center">
-                        <div>
-            <div class="d-flex">
-                <div class="one-half">
-                <h3>Grilled Beef with potatoes</h3>
-                </div>
-                <div class="one-forth">
-                <span class="price">$29</span>
-                </div>
-            </div>
-            <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-            <p><a href="#" class="btn btn-primary">Order now</a></p>
-        </div>
-    </div>
-    </div>
-    </div>
+    {% endif %}
+    {% endfor %}
 </div>
 </div>
 </section>
@@ -234,79 +162,33 @@
 </div>
 </div>	
         <div class="row">
+            {% for master in masters %}
+            {% if forloop.counter < 5 %}
             <div class="col-md-6 col-lg-3 ftco-animate">
                 <div class="staff">
-                    <div class="img" style="background-image: url(/static/images/chef-4.jpg);"></div>
+                    <div class="img" style="background-image: url({{master.image.url}});"></div>
                     <div class="text pt-4">
-                        <h3>John Smooth</h3>
-                        <span class="position mb-2">Restaurant Owner</span>
+                        <h3>{{master.nom}}</h3>
+                        <span class="position mb-2">{{master.fontion}}</span>
                         <div class="faded">
                             <ul class="ftco-social d-flex">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                <li class="ftco-animate"><a href="{{master.fb_link}}"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="{{master.tw_link}}"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="{{master.g_link}}"><span class="icon-google-plus"></span></a></li>
+                <li class="ftco-animate"><a href="{{master.insta_link}}"><span class="icon-instagram"></span></a></li>
             </ul>
         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="staff">
-                    <div class="img" style="background-image: url(/static/images/chef-2.jpg);"></div>
-                    <div class="text pt-4">
-                        <h3>Rebeca Welson</h3>
-                        <span class="position mb-2">Head Chef</span>
-                        <div class="faded">
-                            <ul class="ftco-social d-flex">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-            </ul>
-        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="staff">
-                    <div class="img" style="background-image: url(/static/images/chef-3.jpg);"></div>
-                    <div class="text pt-4">
-                        <h3>Kharl Branyt</h3>
-                        <span class="position mb-2">Chef</span>
-                        <div class="faded">
-                            <ul class="ftco-social d-flex">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-            </ul>
-        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="staff">
-                    <div class="img" style="background-image: url(/static/images/chef-1.jpg);"></div>
-                    <div class="text pt-4">
-                        <h3>Luke Simon</h3>
-                        <span class="position mb-2">Chef</span>
-                        <div class="faded">
-                            <ul class="ftco-social d-flex">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-            </ul>
-        </div>
-                    </div>
-                </div>
-            </div>
+            {% endif %}
+            {% endfor %}
+            
         </div>
     </div>
 </section>
 
-<section class="ftco-section img" style="background-image: url(/static/images/bg_3.jpg)" data-stellar-background-ratio="0.5">
+<section class="ftco-section img" style="background-image: url({{allFront.fixImage.url}})" data-stellar-background-ratio="0.5">
     <div class="container">
         <div class="row d-flex">
 <div class="col-md-7 ftco-animate makereservation p-4 px-md-5 pb-md-5">
@@ -314,36 +196,37 @@
         <span class="subheading">Book a table</span>
         <h2 class="mb-4">Make Reservation</h2>
     </div>
-    <form action="#">
+    <form action="{% url 'index' %}" method="POST">
+        {% csrf_token %}
     <div class="row">
         <div class="col-md-6">
         <div class="form-group">
             <label for="">Name</label>
-            <input type="text" class="form-control" placeholder="Your Name">
+            <input type="text" id="Name" name="name" class="form-control" placeholder="Your Name">
         </div>
         </div>
         <div class="col-md-6">
         <div class="form-group">
             <label for="">Email</label>
-            <input type="text" class="form-control" placeholder="Your Email">
+            <input type="text" name="email" class="form-control" placeholder="Your Email">
         </div>
         </div>
         <div class="col-md-6">
         <div class="form-group">
             <label for="">Phone</label>
-            <input type="text" class="form-control" placeholder="Phone">
+            <input type="text" name="phone" class="form-control" placeholder="Phone">
         </div>
         </div>
         <div class="col-md-6">
         <div class="form-group">
-            <label for="">Phone</label>
-            <input type="text" class="form-control" id="book_date" placeholder="Date">
+            <label for="">Date</label>
+            <input type="date" class="form-control" name="date" id="" placeholder="Date">
         </div>
         </div>
         <div class="col-md-6">
         <div class="form-group">
             <label for="">Time</label>
-            <input type="text" class="form-control" id="book_time" placeholder="Time">
+            <input type="text" class="form-control" name="time" id="book_time" placeholder="Time">
         </div>
         </div>
         <div class="col-md-6">
@@ -351,12 +234,12 @@
             <label for="">Person</label>
             <div class="select-wrap one-third">
             <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-            <select name="" id="" class="form-control">
+            <select name="place" id="" class="form-control">
                 <option value="">Person</option>
-                <option value="">1</option>
-                <option value="">2</option>
-                <option value="">3</option>
-                <option value="">4+</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4+</option>
             </select>
             </div>
         </div>

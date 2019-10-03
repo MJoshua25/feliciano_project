@@ -1,7 +1,11 @@
 from django.shortcuts import render
+import datetime
+
 
 from mainConfig.models import *
 from .models import *
+from customers.models import *
+
 
 # Create your views here.
 
@@ -13,8 +17,24 @@ def index(request):
     setingInfo=setting.objects.filter(status=True)[:1].get()  
     allService=Service.objects.filter(status=True)[:3]
     print(allService)
+    masters=MasterChef.objects.all()
     
-      
+    isSave=False
+    myName=request.POST.get('name',False)
+    myEmail=request.POST.get('email',False)
+    myPhone=request.POST.get('phone',False)
+    myDate=request.POST.get('date',False)
+    myTime=request.POST.get('time',False)
+    myPlace=request.POST.get('place',False)
+    if  myDate :
+        newDate=datetime.datetime.strptime(myDate, "%Y/%m/%d")
+        newDate.strftime("%Y/%m/%d")
+        print(newDate)
+        # newRdv=Reservation(name=myName,email=myEmail,phone=myPhone,date=myDate,time=myTime,place_number=myPlace)
+        # newRdv.save()
+        isSave=True
+        print('rendevous enregistre')
+ 
     data={
         'allFront':allFront,
         'imageBack':headerImage,
@@ -22,6 +42,8 @@ def index(request):
         'menus':menu,
         'seting':setingInfo,
         'services':allService,
+        'masters':masters,
+        'newRdv':isSave
     }
     return render(request,'pages/index.html',data)
 
@@ -32,4 +54,20 @@ def menu(request):
     return render(request,'pages/menu.html')
 
 def reservations(request):
+    isSave=False
+    name=request.POST.get('name')
+    email=request.POST.get('email')
+    phone=request.POST.get('phone')
+    date=request.POST.get('date')
+    time=request.POST.get('time')
+    place=request.POST.get('place')
+    print(name,email,phone,date,time,place)
+    try:
+        newRdv=Reservation(name=name,email=email,phone=phone,date=date,time=time,place_number=place)
+        newRdv.save()
+        isSave=True
+    except:
+        isSave=False
+        print('Erreur d\'enregistrement ')
+    
     return render(request,'pages/reservations.html')
