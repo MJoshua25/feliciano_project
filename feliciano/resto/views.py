@@ -6,6 +6,7 @@ from mainConfig.models import *
 from .models import *
 from customers.models import *
 from blog_App.models import Article
+from contacts.models import Newsletter
 
 
 # Create your views here.
@@ -97,6 +98,13 @@ def menu(request):
         'categories' : Categorie.objects.filter(status=True),
     }
     return render(request,'pages/menu.html', data)
+
+def Souscriber(request):
+    myEmail=request.POST.get('sucriberEmail')
+    newSous=Newsletter(email=myEmail)
+    newSous.save()
+    print(myEmail)
+    return render(request,'pages/menu.html')
 
 def reservations(request):
     isSave=False
