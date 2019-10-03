@@ -93,7 +93,10 @@ def about(request):
     return render(request,'pages/about.html',data)
 
 def menu(request):
-    return render(request,'pages/menu.html')
+    data = {
+        'categories' : Categorie.objects.filter(status=True),
+    }
+    return render(request,'pages/menu.html', data)
 
 def reservations(request):
     isSave=False
