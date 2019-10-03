@@ -7,21 +7,6 @@ from django.contrib import admin
 from . import models
 
 
-class CategorieAdmin(admin.ModelAdmin):
-
-    list_display = ('id', 'titre', 'date_add', 'date_up', 'status')
-    list_filter = (
-        'date_add',
-        'date_up',
-        'status',
-        'id',
-        'titre',
-        'date_add',
-        'date_up',
-        'status',
-    )
-
-
 class ArticleAdmin(admin.ModelAdmin):
 
     list_display = (
@@ -115,7 +100,6 @@ def _register(model, admin_class):
     admin.site.register(model, admin_class)
 
 
-_register(models.Categorie, CategorieAdmin)
 _register(models.Article, ArticleAdmin)
 _register(models.Tag, TagAdmin)
 _register(models.Comment, CommentAdmin)
