@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="/static/css/flaticon.css">
     <link rel="stylesheet" href="/static/css/icomoon.css">
     <link rel="stylesheet" href="/static/css/style.css">
+    
 </head>
 <body>
     <div class="py-1 bg-black top">
@@ -191,12 +192,23 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         </div>
     </div>
     </footer>
-  
+    <script>
+            Swal.fire({
+                title: 'Error!',
+                text: 'Do you want to continue',
+                type: 'error',
+                confirmButtonText: 'Cool'
+                })
+    </script>
+    
 
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
+<!-- sweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<!-- End sweetAlert  -->
 <script src="/static/js/jquery.min.js"></script>
 <script src="/static/js/jquery-migrate-3.0.1.min.js"></script>
 <script src="/static/js/popper.min.js"></script>
@@ -214,6 +226,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="/static/js/google-map.js"></script>
 <script src="/static/js/main.js"></script>
-    
+
 </body>
 </html>

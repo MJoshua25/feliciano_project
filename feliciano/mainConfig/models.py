@@ -99,7 +99,7 @@ class setting(models.Model):
 class WorkingHours(models.Model):
     day=models.DateField()
     openHours=models.TimeField()
-    openHours=models.TimeField()
+    closeHours=models.TimeField()
     date_add=models.DateTimeField(auto_now_add=True)
     date_upp=models.DateTimeField(auto_now=True)
     status=models.BooleanField(default=True)
