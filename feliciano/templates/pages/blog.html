@@ -31,7 +31,7 @@
                                 <h3 class="heading"><a href="{% url 'blog:article' article.id %}">{{ article.titre }}</a></h3>
                                 <p class="clearfix">
                                 <a href="{% url 'blog:article' article.id %}" class="float-left read">Read more</a>
-                                <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> {{ article.article_comment.all.count }}</a>
+                                <a href="{% url 'blog:article' article.id %}#comment-list" class="float-right meta-chat"><span class="icon-chat"></span> {{ article.article_comment.all.count }}</a>
                                 </p>
                             </div>
                             </div>

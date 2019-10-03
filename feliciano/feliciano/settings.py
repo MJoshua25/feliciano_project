@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'customers.apps.CustomersConfig',
     'mainConfig.apps.MainconfigConfig',
     'contacts.apps.ContactsConfig',
+    'statictiques.apps.StatictiquesConfig',
     'resto.apps.RestoConfig',
     'django_admin_generator',
     'tinymce',
@@ -56,6 +57,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'ipaddr.middleware.IPAddrMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -72,6 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'statictiques.context_processors.visitor_ip_address',
             ],
         },
     },
