@@ -42,5 +42,3 @@ def visitor_ip_address(request):
     except :
         print('error')
     return {'ip':ip}
-
-
